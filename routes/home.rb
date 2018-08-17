@@ -5,11 +5,11 @@ module Sinatra
         def self.registered(app)
           #handlers
           index = lambda do
-            check_csrf
             'home'
           end
           #routes
           app.get  '/', &index
+          app.get  '/accesos/', &index
         end
       end
     end

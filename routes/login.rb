@@ -15,6 +15,27 @@ module Sinatra
         		erb :'login/index', :layout => :'layouts/blank', :locals => locals
           end
 
+          ver = lambda do
+            rpta = ''
+            status = 200
+            begin
+            rpta = rpta + 'estado : ' + session[:activo].to_s + '<br>'
+            rpta = rpta + 'momento : ' + session[:momento].to_s + '<br>'
+            rpta = rpta + 'usuario : ' + session[:usuario] + '<br>'
+            rescue TypeError => e
+              execption = e
+              status = 500
+              rpta = {
+                :tipo_mensaje => 'error',
+                :mensaje => [
+                  'Se ha producido un error en mostrar los datos de la sesión',
+                  execption.message
+                ]}.to_json
+            end
+            status status
+            rpta
+          end
+
           acceder = lambda do
             mensaje = ''
             continuar = true
@@ -59,6 +80,7 @@ module Sinatra
           #routes
           app.get  '/login', &index
           app.post '/login/acceder', &acceder
+          app.get  '/login/ver', &ver
         end
       end
     end
