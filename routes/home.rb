@@ -5,6 +5,7 @@ module Sinatra
         def self.registered(app)
           #handlers
           index = lambda do
+            demo
             'home'
           end
           #routes

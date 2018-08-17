@@ -15,6 +15,8 @@ class App < Sinatra::Base
   Dir["./config/initializers/*.rb"].each {|file| require file }
   #registro de modelos
   Dir["./models/*.rb"].each {|file| require file }
+  #registro de helpers
+  helpers Sinatra::App::Helpers
   #registro de rutas
   register Sinatra::App::Routing::Home
   register Sinatra::App::Routing::Departamento
