@@ -4,6 +4,10 @@ Instalar dependencias:
 
     $ bundler install
 
+Ejecutar aplicación:
+
+    $ rackup
+
 ---
 
 Fuentes:
