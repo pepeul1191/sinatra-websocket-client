@@ -11,6 +11,8 @@ class App < Sinatra::Base
   end
   #registro de rutas
   Dir["./routes/*.rb"].each {|file| require file }
+  #registro de initializers
+  Dir["./config/initializers/*.rb"].each {|file| require file }
   #registro de rutas
   register Sinatra::App::Routing::Home
 end

@@ -8,6 +8,17 @@ Ejecutar aplicación:
 
     $ rackup
 
+Ejecutar aplicación hot-reaload:
+
+    $ rerun rackup
+
+### Mmigraciones
+
+Migraciones con DBMATE - ubicaciones:
+
+    $ dbmate -d "ubicaciones/migrations" -e "DATABASE_UBICACIONES" new <<nombre_de_migracion>>
+    $ dbmate -d "ubicaciones/migrations" -e "DATABASE_UBICACIONES" up
+
 ---
 
 Fuentes:
