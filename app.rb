@@ -11,12 +11,15 @@ class App < Sinatra::Base
   before do
     headers['server'] = 'Ruby, Ubuntu'
   end
-  #registro de helpers
+  #registro de helpers de la aplicacion
   helpers Sinatra::App::Helpers::Applicaction
   helpers Sinatra::App::Helpers::Filters
+  #registro de helpers de routes
   helpers Sinatra::App::Helpers::LoginHelper
+  helpers Sinatra::App::Helpers::ErrorHelper
   #registro de rutas
   register Sinatra::App::Routing::Home
   register Sinatra::App::Routing::Departamento
+  register Sinatra::App::Routing::Error
   register Sinatra::App::Routing::Login
 end
