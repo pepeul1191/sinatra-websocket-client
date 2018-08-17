@@ -3,6 +3,9 @@ require 'sinatra/base'
 class App < Sinatra::Base
   #configuraciones
   set :root, File.dirname(__FILE__)
+  set :session_secret, 'super secret'
+  set :public_folder, File.dirname(__FILE__) + '/public'
+  set :layout, 'views/layouts'
   enable :sessions
   #before all requests
   before do
