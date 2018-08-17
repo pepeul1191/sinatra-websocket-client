@@ -3,11 +3,33 @@ module Sinatra
     module Routing
       module Error
         def self.registered(app)
+          #NotFound
+          app.error Sinatra::NotFound do
+            rpta = ''
+            case request.env['REQUEST_METHOD']
+            when 'GET'
+              extensiones = ['css', 'js', 'png', ]
+              path = request.path.split('.')
+              if !extensiones.include? path[path.length - 1]
+                redirect '/error/access/404'
+              end
+              halt
+            else
+              rpta = {
+                :tipo_mensaje => 'error',
+                :mensaje => [
+                  'Recurso no encontrado',
+                  'El recurso que busca no se encuentra en el servidor'
+                ]}
+              status 404
+              rpta.to_json
+            end
+          end
           #handlers
           access = lambda do
             numero_error = params[:numero_error]
             error = ''
-            puts numero_error
+            #puts numero_error
             case numero_error
             when '404'
               error = {
