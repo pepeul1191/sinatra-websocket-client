@@ -13,7 +13,10 @@ class App < Sinatra::Base
   end
   #registro de helpers
   helpers Sinatra::App::Helpers::Applicaction
+  helpers Sinatra::App::Helpers::Filters
+  helpers Sinatra::App::Helpers::LoginHelper
   #registro de rutas
   register Sinatra::App::Routing::Home
   register Sinatra::App::Routing::Departamento
+  register Sinatra::App::Routing::Login
 end

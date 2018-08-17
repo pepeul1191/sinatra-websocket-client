@@ -6,7 +6,7 @@ module Sinatra
           rpta = ''
           if defined? csss
             csss.each do |css|
-              temp = '<link href="' + CONSTANTS[:STATIC_URL] + css + '.css" rel="stylesheet"/>'
+              temp = '<link href="' + CONSTANTS[:static_url] + css + '.css" rel="stylesheet"/>'
               rpta = rpta + temp
             end
           end
@@ -17,15 +17,11 @@ module Sinatra
           rpta = ''
           if defined? jss
             jss.each do |js|
-              temp = '<script src="' + CONSTANTS[:STATIC_URL] + js + '.js" type="text/javascript"></script>'
+              temp = '<script src="' + CONSTANTS[:static_url] + js + '.js" type="text/javascript"></script>'
               rpta = rpta + temp
             end
           end
           rpta
-        end
-
-        def demo
-          redirect '/logines'
         end
       end
     end

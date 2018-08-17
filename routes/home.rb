@@ -5,7 +5,7 @@ module Sinatra
         def self.registered(app)
           #handlers
           index = lambda do
-            demo
+            check_csrf
             'home'
           end
           #routes
