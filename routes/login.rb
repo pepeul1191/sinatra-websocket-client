@@ -3,6 +3,13 @@ module Sinatra
     module Routing
       module Login
         def self.registered(app)
+          #filters
+          app.before ['/login',] do
+            check_session_false
+          end
+          app.before ['/login/ver',] do
+            check_session_true
+          end
           #handlers
           index = lambda do
             locals = {
@@ -77,10 +84,16 @@ module Sinatra
           		erb :'login/index', :layout => :'layouts/blank', :locals => locals
             end
           end
+
+          cerrar = lambda do
+            session.clear
+            redirect '/login'
+          end
           #routes
           app.get  '/login', &index
           app.post '/login/acceder', &acceder
           app.get  '/login/ver', &ver
+          app.get  '/login/cerrar', &cerrar
         end
       end
     end

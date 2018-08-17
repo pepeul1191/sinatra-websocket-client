@@ -3,6 +3,10 @@ module Sinatra
     module Routing
       module Home
         def self.registered(app)
+          #filters
+          app.before ['/', '/accesos/'] do
+            check_session_true
+          end
           #handlers
           index = lambda do
             'home'

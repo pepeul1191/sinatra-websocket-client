@@ -4,7 +4,7 @@ module Sinatra
       module Departamento
         def self.registered(app)
           #filters
-          app.before '/departamento/*' do
+          app.before ['/departamento/*',] do
             check_csrf
           end
           #handlers
