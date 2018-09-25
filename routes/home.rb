@@ -9,7 +9,14 @@ module Sinatra
           end
           #handlers
           index = lambda do
-            'home'
+            locals = {
+              :constants => CONSTANTS,
+              :csss => login_css(),
+              :jss => login_js(),
+              :title => 'Home',
+              :mensaje => ''
+            }
+        		erb :'home/index', :layout => :'layouts/app', :locals => locals
           end
           #routess
           app.get  '/', &index

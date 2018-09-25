@@ -17,6 +17,7 @@ class App < Sinatra::Base
   #registro de helpers de routes
   helpers Sinatra::App::Helpers::LoginHelper
   helpers Sinatra::App::Helpers::ErrorHelper
+  helpers Sinatra::App::Helpers::HomeHelper
   #registro de rutas
   register Sinatra::App::Routing::Home
   register Sinatra::App::Routing::Error

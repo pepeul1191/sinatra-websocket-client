@@ -1,6 +1,7 @@
 CONSTANTS = {
   :base_url => 'http://localhost:3000/',
   :static_url => 'http://localhost:3000/',
+  :ws_url => 'ws://192.168.1.6:4000/',
   :csrf => {
     :secret => 'mpt/sr6eS2AlCRHU7DVThMgFTN08pnfSDf/C94eZx7udfm0lvgaYWLYJttYPKzGKDTlXwVU/d2FOxbKkgNlsTw==',
     :key => 'Csrf_Val',

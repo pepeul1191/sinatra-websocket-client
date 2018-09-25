@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "swp-backbone": "^1.0.3"
+    "swp-backbone": "^1.0.3",
+    "jquery-simple-websocket": "*"
   }
 }
