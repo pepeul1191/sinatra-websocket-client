@@ -1,4 +1,4 @@
-# Sinatra Boilerplate v3
+# Sinatra WebSocket Client
 
 Instalar dependencias:
 
@@ -16,8 +16,8 @@ Ejecutar aplicación hot-reaload:
 
 Migraciones con DBMATE - ubicaciones:
 
-    $ dbmate -d "ubicaciones/migrations" -e "DATABASE_UBICACIONES" new <<nombre_de_migracion>>
-    $ dbmate -d "ubicaciones/migrations" -e "DATABASE_UBICACIONES" up
+    $ dbmate -d "db/migrations" -e "DATABASE_URL" new <<nombre_de_migracion>>
+    $ dbmate -d "db/migrations" -e "DATABASE_URL" up
 
 ---
 
