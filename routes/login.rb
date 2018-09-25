@@ -26,9 +26,10 @@ module Sinatra
             rpta = ''
             status = 200
             begin
-            rpta = rpta + 'estado : ' + session[:activo].to_s + '<br>'
-            rpta = rpta + 'momento : ' + session[:momento].to_s + '<br>'
-            rpta = rpta + 'usuario : ' + session[:usuario] + '<br>'
+              rpta = rpta + 'estado : ' + session[:activo].to_s + '<br>'
+              rpta = rpta + 'momento : ' + session[:momento].to_s + '<br>'
+              rpta = rpta + 'usuario : ' + session[:usuario] + '<br>'
+              rpta = rpta + 'user_id : ' + session[:user_id].to_s + '<br>'
             rescue TypeError => e
               execption = e
               status = 500
@@ -49,6 +50,7 @@ module Sinatra
             csrf_key = CONSTANTS[:csrf][:key]
             csrf_val = CONSTANTS[:csrf][:secret]
             csrf_req = params[csrf_key]
+            user = nil
             if csrf_req == '' then
               mensaje = 'Token CSRF no existe en POST request'
               continuar = false
@@ -62,7 +64,8 @@ module Sinatra
               if continuar == true then
                 usuario = params['usuario']
                 contrasenia = params['contrasenia']
-                if usuario != CONSTANTS[:login][:usuario] or contrasenia != CONSTANTS[:login][:contrasenia] then
+                user = Models::User.where(:user => usuario, :password => contrasenia).first()
+                if user == nil then
                   mensaje = 'Usuario y/o contraenia no coinciden'
                   continuar = false
                 end
@@ -72,6 +75,7 @@ module Sinatra
               session[:activo] = true
               session[:momento] = Time.now
               session[:usuario] = usuario
+              session[:user_id] = user.id
               redirect '/accesos/'
             else
               locals = {
@@ -79,7 +83,7 @@ module Sinatra
                 :csss => login_css(),
                 :jss => login_js(),
                 :title => 'Bienvenido',
-                :mensaje => mensaje
+                :mensaje => mensaje,
               }
           		erb :'login/index', :layout => :'layouts/blank', :locals => locals
             end

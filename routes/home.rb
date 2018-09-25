@@ -11,9 +11,8 @@ module Sinatra
           index = lambda do
             'home'
           end
-          #routes
+          #routess
           app.get  '/', &index
-          app.get  '/accesos/', &index
         end
       end
     end
