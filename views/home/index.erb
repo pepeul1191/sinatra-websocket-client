@@ -1,1 +1,22 @@
-  <h1>home</h1>
+<% users = Models::User.all() %>
+<h1>Lista de usuarios</h1>
+<table class="table">
+  <thead>
+    <th>Nombre</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    <% users.each do |u| %>
+    <tr>
+      <% if u.id != session[:user_id] %>
+      <td><%= u.user%></td>
+      <td>
+        <a href="<%= CONSTANTS[:base_url] + 'chat/'+ u.id.to_s %>">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </a>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

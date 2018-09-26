@@ -1,0 +1,13 @@
+<h3>Chat <%= params['guest_id'] %></h3>
+
+<div class="form-inline">
+  <div class="form-group">
+    <input type="text" class="form-control" id="txtMessage">
+    <input type="hidden" class="form-control" id="txtUser" value="<%= session[:user_id] %>">
+    <input type="hidden" class="form-control" id="txtGuest" value="<%= params['guest_id'] %>">
+  </div>
+  <button class="btn btn-default btn-primary" id="btnSend">
+    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+    Send
+  </button>
+</div>

@@ -18,8 +18,10 @@ class App < Sinatra::Base
   helpers Sinatra::App::Helpers::LoginHelper
   helpers Sinatra::App::Helpers::ErrorHelper
   helpers Sinatra::App::Helpers::HomeHelper
+  helpers Sinatra::App::Helpers::ChatHelper
   #registro de rutas
   register Sinatra::App::Routing::Home
   register Sinatra::App::Routing::Error
   register Sinatra::App::Routing::Login
+  register Sinatra::App::Routing::Chat
 end
