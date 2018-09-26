@@ -14,7 +14,7 @@ $("#btnSend").click(function(event){
 	var user_id = $("#txtUser").val();
   var guest_id = $("#txtGuest").val();
 	webSocket.send({
-    'action': 'sendMessage',
+    'action': 'chatMessage',
     'message': message,
     'user_id':user_id,
     'guest_id': guest_id ,
