@@ -21,8 +21,8 @@ CONSTANTS = {
     :archivos => '',
   },
   :servicios => {
-    :accesos => {
-      :url => 'http://localhost:4000/',
+    :chat => {
+      :url => 'http://192.168.1.6:4000/',
       :csrf_key => 'csrf_val',
       :csrf_value => 'PKBcauXg6sTXz7Ddlty0nejVgoUodXL89KNxcrfwkEme0Huqtj6jjt4fP7v2uF4L',
     },

@@ -1,5 +1,11 @@
 <h3>Chat <%= params['guest_id'] %></h3>
 
+<ul id="ulMessages">
+<% previous_messages.each do |m| %>
+  <li><%= m['user_id'] + '<br>' + m['moment'] + ' <br> ' + m['content'] %></li>
+<% end %>
+<ul>
+
 <div class="form-inline">
   <div class="form-group">
     <input type="text" class="form-control" id="txtMessage">

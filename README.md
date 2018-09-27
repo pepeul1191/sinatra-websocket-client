@@ -6,13 +6,13 @@ Instalar dependencias:
 
 Ejecutar aplicación:
 
-    $ rackup
+    $ puma
 
 Ejecutar aplicación hot-reaload:
 
-    $ rerun rackup
+    $ rerun puma --ignore "public/*"
 
-### Mmigraciones
+### Migraciones
 
 Migraciones con DBMATE - ubicaciones:
 
