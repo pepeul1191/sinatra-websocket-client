@@ -5,7 +5,10 @@ $(document).ready(function() {
     url: WS_URL +'ws/chat?user_id=' + USER_ID
   });
 	webSocket.listen(function(message) {
-	   console.log(message);
+	  console.log(message);
+    var content = "<li>" + message['sender_id'] + "<br>" + message['moment'] + "<br>" + message['message'] + "</li>";
+    $("#ulMessages").append(content);
+    //converationUl.appendChild(li);
   });
 });
 
