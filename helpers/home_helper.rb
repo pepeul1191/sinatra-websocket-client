@@ -2,7 +2,7 @@ module Sinatra
   module App
     module Helpers
       module HomeHelper
-        def login_css
+        def helper_home_index_css
           rpta = nil
           if CONSTANTS[:ambiente] == 'desarrollo'
             rpta = [
@@ -20,7 +20,7 @@ module Sinatra
           rpta
         end
 
-        def login_js
+        def helper_home_index_js
           rpta = nil
           if CONSTANTS[:ambiente] == 'desarrollo'
             rpta = [
@@ -28,6 +28,7 @@ module Sinatra
               'bower_components/bootstrap/dist/js/bootstrap.min',
               'bower_components/jquery-simple-websocket/dist/jquery.simple.websocket.min',
               'assets/js/home',
+              'assets/js/chat',
             ]
           else
             rpta = [

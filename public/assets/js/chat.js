@@ -5,12 +5,35 @@ $(document).ready(function() {
     url: WS_URL +'ws/chat?user_id=' + USER_ID
   });
 	webSocket.listen(function(message) {
-	  console.log(message);
-    var content = "<li>" + message['sender_id'] + "<br>" + message['moment'] + "<br>" + message['message'] + "</li>";
-    $("#ulMessages").append(content);
-    //converationUl.appendChild(li);
+    console.log(message);
+    try {
+      var arrayPath = window.location.pathname.split('/');
+      arrayPath.shift();
+      switch(arrayPath[0]) {
+        case '':
+          notifyMessage(message);
+          break;
+        case 'chat':
+          addMessage(message);
+          break;
+        default:
+          console.log("DEFAULT???");
+      }
+    }
+    catch(err) {
+      console.log(err);
+    }
   });
 });
+
+function notifyMessage(message){
+  alert('ha recibido un mensaje del user_id ' + message['sender_id'] );
+}
+
+function addMessage(message){
+  var content = "<li>" + message['sender_id'] + "<br>" + message['moment'] + "<br>" + message['message'] + "</li>";
+  $("#ulMessages").append(content);
+}
 
 $("#btnSend").click(function(event){
 	var message = $("#txtMessage").val();

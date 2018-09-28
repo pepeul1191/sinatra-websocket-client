@@ -22,8 +22,8 @@ module Sinatra
             previous_messages = response.body
             locals = {
               :constants => CONSTANTS,
-              :csss => login_css(),
-              :jss => login_js(),
+              :csss => helper_chat_css(),
+              :jss => helper_chat_js(),
               :title => 'Home',
               :mensaje => '',
               :previous_messages => JSON.parse(previous_messages),

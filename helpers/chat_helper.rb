@@ -2,7 +2,7 @@ module Sinatra
   module App
     module Helpers
       module ChatHelper
-        def login_css
+        def helper_chat_css
           rpta = nil
           if CONSTANTS[:ambiente] == 'desarrollo'
             rpta = [
@@ -20,7 +20,7 @@ module Sinatra
           rpta
         end
 
-        def login_js
+        def helper_chat_js
           rpta = nil
           if CONSTANTS[:ambiente] == 'desarrollo'
             rpta = [

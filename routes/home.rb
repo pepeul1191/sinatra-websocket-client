@@ -11,8 +11,8 @@ module Sinatra
           index = lambda do
             locals = {
               :constants => CONSTANTS,
-              :csss => login_css(),
-              :jss => login_js(),
+              :csss => helper_home_index_css(),
+              :jss => helper_home_index_js(),
               :title => 'Home',
               :mensaje => ''
             }
