@@ -19,8 +19,7 @@ $(document).ready(function() {
         default:
           console.log("DEFAULT???");
       }
-    }
-    catch(err) {
+    }catch(err) {
       console.log(err);
     }
   });
@@ -31,8 +30,12 @@ function notifyMessage(message){
 }
 
 function addMessage(message){
-  var content = "<li>" + message['sender_id'] + "<br>" + message['moment'] + "<br>" + message['message'] + "</li>";
-  $("#ulMessages").append(content);
+  try {
+    var content = "<li>" + message['sender_id'] + "<br>" + message['moment'] + "<br>" + message['message'] + "</li>";
+    $("#ulMessages").append(content);
+  }catch(err) {
+    console.log(err);
+  }
 }
 
 $("#btnSend").click(function(event){
